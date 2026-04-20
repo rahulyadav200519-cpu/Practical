@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Viewer Website</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    min-height:100vh;
+    padding:30px;
+    color:white;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:38px;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    color:#222;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.card h2{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+button{
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:8px;
+    font-size:16px;
+    color:white;
+}
+
+.view{
+    background:#28a745;
+}
+
+.download{
+    background:#007bff;
+}
+
+button:hover{
+    opacity:0.85;
+}
+
+.viewer{
+    margin-top:20px;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    height:1000px;
+    display:none;
+}
+
+iframe{
+    width:100%;
+    height:100%;
+    border:none;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Practical Manual Library</h1>
+
+<div class="container">
+
+<div class="card">
+<h2>Cyber security in business</h2>
+<button class="view" onclick="openPDF('./assests/Cyber security in business_17_01.pdf')">View</button>
+<a href="./assests/Cyber security in business_17_01.pdf" download><button class="download">Download</button></a>
+</div>
+
+<div class="card">
+<h2>Cyber security Manual</h2>
+<button class="view" onclick="openPDF('./assests/Cyber security Manual .pdf')">View</button>
+<a href="./assests/Cyber security Manual .pdf" download><button class="download">Download</button></a>
+</div>
+
+<div class="card">
+<h2>Machine Learning LAB</h2>
+<button class="view" onclick="openPDF('./assests/Machine LearningLab Manual_with_QR.pdf')">View</button>
+<a href="./assests/Machine LearningLab Manual_with_QR.pdf" download><button class="download">Download</button></a>
+</div>
+
+<div class="card">
+<h2>Cloud Computing LAB</h2>
+<button class="view" onclick="openPDF('./assests/Rinku_CCLAB(FINAL)1.pdf')">View</button>
+<a href="./assests/Rinku_CCLAB(FINAL)1.pdf" download><button class="download">Download</button></a>
+</div>
+
+</div>
+
+<div class="viewer" id="viewerBox">
+<iframe id="pdfFrame"></iframe>
+</div>
+
+<script>
+function openPDF(file){
+    document.getElementById("viewerBox").style.display="block";
+    document.getElementById("pdfFrame").src=file;
+}
+</script>
+
+</body>
+</html>
